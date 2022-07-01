@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct LeagueListView: View {
+
+    @ObservedObject var viewModel: LeagueListViewModel
+
+    init(viewModel: LeagueListViewModel) {
+        self.viewModel = viewModel
+    }
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(viewModel.rows, id: \.nameLeague) { leagueRowViewModel in
+                LeagueRowView(viewModel: leagueRowViewModel)
+            }
+            .navigationBarTitle("Leagues")
+        }
+        .onAppear {
+            viewModel.getAllLeaguesAvailable()
+        }
     }
 }
 
 struct LeagueListView_Previews: PreviewProvider {
     static var previews: some View {
-        LeagueListView()
+        let viewModel = LeagueListViewModel()
+        LeagueListView(viewModel: viewModel)
     }
 }
