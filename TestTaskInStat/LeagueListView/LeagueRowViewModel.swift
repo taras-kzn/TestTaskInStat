@@ -8,6 +8,7 @@
 import Foundation
 
 protocol LeagueRowViewModelProtocol {
+    var idLeague: String { get }
     var nameLeague: String { get }
     var abbreviation: String { get }
     var logoData: Data? { get }
@@ -15,6 +16,10 @@ protocol LeagueRowViewModelProtocol {
 }
 
 class LeagueRowViewModel: LeagueRowViewModelProtocol, ObservableObject {
+    var idLeague: String {
+        leagues.id
+    }
+
     var nameLeague: String {
         leagues.name
     }

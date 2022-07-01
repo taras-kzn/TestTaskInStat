@@ -2,7 +2,7 @@
 //  RowView.swift
 //  TestTaskInStat
 //
-//  Created by admin on 01.07.2022.
+//  Created by Denis Tarasov on 01.07.2022.
 //
 
 import SwiftUI

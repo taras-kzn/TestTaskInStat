@@ -11,13 +11,20 @@ import SwiftUI
 protocol LeagueListViewModelProtocol {
     var rows: [LeagueRowViewModel] { get }
     func getAllLeaguesAvailable()
+    init(networkManager: NetworkManagerProtocol)
 }
 
 class LeagueListViewModel: LeagueListViewModelProtocol, ObservableObject {
     @Published var rows: [LeagueRowViewModel] = []
+    private let networkManager: NetworkManagerProtocol
+    var idLeague: String = ""
+
+    required init(networkManager: NetworkManagerProtocol) {
+        self.networkManager = networkManager
+    }
 
     func getAllLeaguesAvailable() {
-        NetworkManager.shared.getAllLeagues { [weak self] leaguesData in
+        networkManager.getAllLeagues { [weak self] leaguesData in
             guard let self = self else { return }
             leaguesData.data.forEach { data in
                 let leagueRowViewModel = LeagueRowViewModel(allLeagues: data)
@@ -26,3 +33,5 @@ class LeagueListViewModel: LeagueListViewModelProtocol, ObservableObject {
         }
     }
 }
+
+

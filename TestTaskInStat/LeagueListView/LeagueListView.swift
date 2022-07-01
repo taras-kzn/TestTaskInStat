@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LeagueListView: View {
 
+  //  @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: LeagueListViewModel
 
     init(viewModel: LeagueListViewModel) {
@@ -17,8 +18,12 @@ struct LeagueListView: View {
 
     var body: some View {
         NavigationView {
-            List(viewModel.rows, id: \.nameLeague) { leagueRowViewModel in
-                LeagueRowView(viewModel: leagueRowViewModel)
+            List(viewModel.rows, id: \.idLeague) { leagueRowViewModel in
+                let networkManager = NetworkManager.shared
+                let viewModel =  SeasonsListViewModel(networkManager: networkManager, idLeague: leagueRowViewModel.idLeague)
+                NavigationLink(destination: SeasonListView(viewModel: viewModel)) {
+                    LeagueRowView(viewModel: leagueRowViewModel)
+                }
             }
             .navigationBarTitle("Leagues")
         }
@@ -30,7 +35,8 @@ struct LeagueListView: View {
 
 struct LeagueListView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = LeagueListViewModel()
+        let networkManager = NetworkManager.shared
+        let viewModel = LeagueListViewModel(networkManager: networkManager)
         LeagueListView(viewModel: viewModel)
     }
 }
