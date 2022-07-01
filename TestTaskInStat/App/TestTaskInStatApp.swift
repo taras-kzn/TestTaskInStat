@@ -11,7 +11,8 @@ import SwiftUI
 struct TestTaskInStatApp: App {
     var body: some Scene {
         WindowGroup {
-            let viewModel = LeagueListViewModel()
+            let networkManager = NetworkManager.shared
+            let viewModel = LeagueListViewModel(networkManager: networkManager)
             LeagueListView(viewModel: viewModel)
         }
     }
