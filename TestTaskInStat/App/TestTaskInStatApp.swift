@@ -11,7 +11,7 @@ import SwiftUI
 struct TestTaskInStatApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LeagueListView()
         }
     }
 }

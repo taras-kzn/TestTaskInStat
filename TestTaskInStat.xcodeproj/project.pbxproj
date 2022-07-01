@@ -8,19 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		84C97068286EDF5200C6B1CC /* TestTaskInStatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C97067286EDF5200C6B1CC /* TestTaskInStatApp.swift */; };
-		84C9706A286EDF5200C6B1CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C97069286EDF5200C6B1CC /* ContentView.swift */; };
 		84C9706C286EDF5600C6B1CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C9706B286EDF5600C6B1CC /* Assets.xcassets */; };
 		84C9706F286EDF5600C6B1CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C9706E286EDF5600C6B1CC /* Preview Assets.xcassets */; };
 		84C97076286EE01300C6B1CC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 84C97075286EE01300C6B1CC /* .gitignore */; };
+		84C9707B286EE56F00C6B1CC /* LeagueListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9707A286EE56F00C6B1CC /* LeagueListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		84C97064286EDF5200C6B1CC /* TestTaskInStat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskInStat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C97067286EDF5200C6B1CC /* TestTaskInStatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskInStatApp.swift; sourceTree = "<group>"; };
-		84C97069286EDF5200C6B1CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		84C9706B286EDF5600C6B1CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84C9706E286EDF5600C6B1CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		84C97075286EE01300C6B1CC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		84C9707A286EE56F00C6B1CC /* LeagueListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +54,9 @@
 		84C97066286EDF5200C6B1CC /* TestTaskInStat */ = {
 			isa = PBXGroup;
 			children = (
-				84C97067286EDF5200C6B1CC /* TestTaskInStatApp.swift */,
-				84C97069286EDF5200C6B1CC /* ContentView.swift */,
-				84C9706B286EDF5600C6B1CC /* Assets.xcassets */,
+				84C97079286EE47600C6B1CC /* LeagueListView */,
+				84C97078286EE31300C6B1CC /* App */,
+				84C97077286EE30000C6B1CC /* Resources */,
 				84C9706D286EDF5600C6B1CC /* Preview Content */,
 			);
 			path = TestTaskInStat;
@@ -68,6 +68,30 @@
 				84C9706E286EDF5600C6B1CC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		84C97077286EE30000C6B1CC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				84C9706B286EDF5600C6B1CC /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		84C97078286EE31300C6B1CC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				84C97067286EDF5200C6B1CC /* TestTaskInStatApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		84C97079286EE47600C6B1CC /* LeagueListView */ = {
+			isa = PBXGroup;
+			children = (
+				84C9707A286EE56F00C6B1CC /* LeagueListView.swift */,
+			);
+			path = LeagueListView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +165,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84C9706A286EDF5200C6B1CC /* ContentView.swift in Sources */,
 				84C97068286EDF5200C6B1CC /* TestTaskInStatApp.swift in Sources */,
+				84C9707B286EE56F00C6B1CC /* LeagueListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
