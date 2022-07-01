@@ -11,7 +11,8 @@ import SwiftUI
 struct TestTaskInStatApp: App {
     var body: some Scene {
         WindowGroup {
-            LeagueListView()
+            let viewModel = LeagueListViewModel()
+            LeagueListView(viewModel: viewModel)
         }
     }
 }
