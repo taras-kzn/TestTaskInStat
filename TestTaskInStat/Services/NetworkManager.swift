@@ -7,20 +7,28 @@
 
 import Foundation
 
+enum Constants: String {
+    case allLeaguesURL = "https://api-football-standings.azharimm.site/leagues"
+}
+
 protocol NetworkManagerProtocol {
     func getAllLeagues(completion: @escaping(_ leagues: LeaguesData) -> Void)
     func getSeasons(idLeagues: String, completion: @escaping(_ seasons: SeasonsData) -> Void)
+    func getLeaderboard(idLeagues: String,season: String, completion: @escaping(_ leaderboard: LeaderboardData) -> Void)
 }
 
 class NetworkManager: NetworkManagerProtocol {
-    static let shared = NetworkManager()
 
-    private init() {}
+    private let session: URLSession
+
+    init(session: URLSession = .shared) {
+        self.session = session
+    }
 
     func getAllLeagues(completion: @escaping(_ leagues: LeaguesData) -> Void) {
         guard let url = URL(string: Constants.allLeaguesURL.rawValue) else { return }
 
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
+        session.dataTask(with: url) { (data, _, error) in
             if let error = error { print(error); return }
             guard let data = data else { return }
 
@@ -59,10 +67,30 @@ class NetworkManager: NetworkManagerProtocol {
         }.resume()
     }
 
+    func getLeaderboard(idLeagues: String,season: String, completion: @escaping (LeaderboardData) -> Void) {
+        let seasonsURL = "https://api-football-standings.azharimm.site/leagues/\(idLeagues)/standings?season=\(season)&sort=asc"
+        guard let url = URL(string: seasonsURL) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+
+            if let error = error { print(error); return }
+            guard let data = data else { return }
+
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let leaderboard = try decoder.decode(LeaderboardData.self, from: data)
+
+                DispatchQueue.main.async {
+                    completion(leaderboard)
+
+                    
+                }
+            } catch let error {
+                print("Error serialisation json", error.localizedDescription)
+            }
+        }.resume()
+    }
 }
 
-enum Constants: String {
-    case allLeaguesURL = "https://api-football-standings.azharimm.site/leagues"
-    case seasonsURL = "https://api-football-standings.azharimm.site/leagues/eng.1/seasons"
-}
 

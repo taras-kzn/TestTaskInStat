@@ -18,11 +18,23 @@ struct SeasonListView: View {
 
     var body: some View {
         NavigationView {
-            List(viewModel.rows, id: \.year) { seasonsRowViewModel in
-                SeasonRowView(viewModel: seasonsRowViewModel)
+            switch viewModel.state {
+            case .loading:
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                    .scaleEffect(2)
+            case .ready:
+                List(viewModel.rows, id: \.year) { seasonsRowViewModel in
+                    let networkManager = NetworkManager()
+                    let viewModel =  LeaderboardViewModel(networkManager: networkManager, season: seasonsRowViewModel.year, idLeagues: viewModel.idLeague)
+                    NavigationLink(destination: LeaderboardView(viewModel: viewModel)) {
+                        SeasonRowView(viewModel: seasonsRowViewModel)
+                    }
+                }
+                .navigationBarTitle("Seasons")
+                .navigationBarItems(leading: buttonBack)
             }
-            .navigationBarTitle("Seasons")
-            .navigationBarItems(leading: buttonBack)
+
         }
         .onAppear {
             viewModel.getSeasonsAvailable()
@@ -54,7 +66,7 @@ extension SeasonListView {
 
 struct SeasonListView_Previews: PreviewProvider {
     static var previews: some View {
-        let networkManager = NetworkManager.shared
+        let networkManager = NetworkManager()
         let viewModel = SeasonsListViewModel(networkManager: networkManager, idLeague: "")
         SeasonListView(viewModel: viewModel)
     }

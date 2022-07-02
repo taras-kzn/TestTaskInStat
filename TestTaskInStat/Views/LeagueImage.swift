@@ -22,8 +22,8 @@ struct LeagueImage: View {
     }
 
     private func getImage(from data: Data?) -> Image {
-        guard let imageData = data else { return Image(systemName: "xmark.shield") }
-        guard let uiImage = UIImage(data: imageData) else { return Image(systemName: "xmark.shield") }
+        guard let imageData = data else { return Image(systemName: "photo.circle") }
+        guard let uiImage = UIImage(data: imageData) else { return Image(systemName: "photo.circle") }
         return Image(uiImage: uiImage)
     }
 }

@@ -15,7 +15,9 @@ protocol SeasonsListViewModelProtocol {
 }
 
 class SeasonsListViewModel: SeasonsListViewModelProtocol, ObservableObject {
+
     @Published var rows: [SeasonRowViewModel] = []
+    @Published private(set) var state = ModelState.ready
 
     private let networkManager: NetworkManagerProtocol
     var idLeague: String
@@ -26,8 +28,10 @@ class SeasonsListViewModel: SeasonsListViewModelProtocol, ObservableObject {
     }
 
     func getSeasonsAvailable() {
+        state = .loading
         networkManager.getSeasons(idLeagues: idLeague) { [weak self] seasons in
             guard let self = self else { return }
+            self.state = .ready
 
             seasons.data.seasons.forEach { data in
 
