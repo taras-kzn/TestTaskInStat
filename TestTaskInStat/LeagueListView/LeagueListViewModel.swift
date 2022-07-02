@@ -16,6 +16,7 @@ protocol LeagueListViewModelProtocol {
 
 class LeagueListViewModel: LeagueListViewModelProtocol, ObservableObject {
     @Published var rows: [LeagueRowViewModel] = []
+    @Published private(set) var state = ModelState.ready
     private let networkManager: NetworkManagerProtocol
     var idLeague: String = ""
 
@@ -24,8 +25,10 @@ class LeagueListViewModel: LeagueListViewModelProtocol, ObservableObject {
     }
 
     func getAllLeaguesAvailable() {
+        state = .loading
         networkManager.getAllLeagues { [weak self] leaguesData in
             guard let self = self else { return }
+            self.state = .ready
             leaguesData.data.forEach { data in
                 let leagueRowViewModel = LeagueRowViewModel(allLeagues: data)
                 self.rows.append(leagueRowViewModel)

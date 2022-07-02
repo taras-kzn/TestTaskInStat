@@ -14,7 +14,12 @@
 		84014C56286F3CC90065DF15 /* Seasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84014C55286F3CC90065DF15 /* Seasons.swift */; };
 		84014C58286F41070065DF15 /* SeasonsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84014C57286F41070065DF15 /* SeasonsListViewModel.swift */; };
 		84014C5A286F4CBA0065DF15 /* SeasonRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84014C59286F4CBA0065DF15 /* SeasonRowView.swift */; };
+		848A70B428702E9800FFF1BB /* LeaderboardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A70B328702E9800FFF1BB /* LeaderboardRowView.swift */; };
+		848A70B628702EEF00FFF1BB /* LeaderboardRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A70B528702EEF00FFF1BB /* LeaderboardRowViewModel.swift */; };
 		84B81CF0286F5E390042AE57 /* SeasonRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B81CEF286F5E390042AE57 /* SeasonRowViewModel.swift */; };
+		84B81CF5286F93D00042AE57 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B81CF4286F93D00042AE57 /* LeaderboardView.swift */; };
+		84B81CF7286F946E0042AE57 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B81CF6286F946E0042AE57 /* Leaderboard.swift */; };
+		84B81CF9286F97190042AE57 /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B81CF8286F97190042AE57 /* LeaderboardViewModel.swift */; };
 		84C97068286EDF5200C6B1CC /* TestTaskInStatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C97067286EDF5200C6B1CC /* TestTaskInStatApp.swift */; };
 		84C9706C286EDF5600C6B1CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C9706B286EDF5600C6B1CC /* Assets.xcassets */; };
 		84C9706F286EDF5600C6B1CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C9706E286EDF5600C6B1CC /* Preview Assets.xcassets */; };
@@ -34,7 +39,12 @@
 		84014C55286F3CC90065DF15 /* Seasons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seasons.swift; sourceTree = "<group>"; };
 		84014C57286F41070065DF15 /* SeasonsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsListViewModel.swift; sourceTree = "<group>"; };
 		84014C59286F4CBA0065DF15 /* SeasonRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRowView.swift; sourceTree = "<group>"; };
+		848A70B328702E9800FFF1BB /* LeaderboardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRowView.swift; sourceTree = "<group>"; };
+		848A70B528702EEF00FFF1BB /* LeaderboardRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRowViewModel.swift; sourceTree = "<group>"; };
 		84B81CEF286F5E390042AE57 /* SeasonRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRowViewModel.swift; sourceTree = "<group>"; };
+		84B81CF4286F93D00042AE57 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		84B81CF6286F946E0042AE57 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		84B81CF8286F97190042AE57 /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
 		84C97064286EDF5200C6B1CC /* TestTaskInStat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskInStat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C97067286EDF5200C6B1CC /* TestTaskInStatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskInStatApp.swift; sourceTree = "<group>"; };
 		84C9706B286EDF5600C6B1CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +87,17 @@
 			path = SeasonListView;
 			sourceTree = "<group>";
 		};
+		84B81CF1286F92DA0042AE57 /* LeaderboardView */ = {
+			isa = PBXGroup;
+			children = (
+				84B81CF4286F93D00042AE57 /* LeaderboardView.swift */,
+				84B81CF8286F97190042AE57 /* LeaderboardViewModel.swift */,
+				848A70B328702E9800FFF1BB /* LeaderboardRowView.swift */,
+				848A70B528702EEF00FFF1BB /* LeaderboardRowViewModel.swift */,
+			);
+			path = LeaderboardView;
+			sourceTree = "<group>";
+		};
 		84C9705B286EDF5200C6B1CC = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +122,7 @@
 				84C97083286EF6BC00C6B1CC /* Services */,
 				84C97079286EE47600C6B1CC /* LeagueListView */,
 				84014C52286F3B210065DF15 /* SeasonListView */,
+				84B81CF1286F92DA0042AE57 /* LeaderboardView */,
 				84014C4F286F2E570065DF15 /* Views */,
 				84C97080286EF0E300C6B1CC /* Models */,
 				84C97077286EE30000C6B1CC /* Resources */,
@@ -149,6 +171,7 @@
 			children = (
 				84C97081286EF11200C6B1CC /*  AllLeagues.swift */,
 				84014C55286F3CC90065DF15 /* Seasons.swift */,
+				84B81CF6286F946E0042AE57 /* Leaderboard.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,6 +257,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				84014C4B286F25E10065DF15 /* LeagueRowViewModel.swift in Sources */,
+				848A70B628702EEF00FFF1BB /* LeaderboardRowViewModel.swift in Sources */,
+				84B81CF7286F946E0042AE57 /* Leaderboard.swift in Sources */,
 				84C9707F286EEF9800C6B1CC /* LeagueListViewModel.swift in Sources */,
 				84014C56286F3CC90065DF15 /* Seasons.swift in Sources */,
 				84014C51286F2E760065DF15 /* LeagueImage.swift in Sources */,
@@ -243,6 +268,9 @@
 				84014C54286F3B3D0065DF15 /* SeasonListView.swift in Sources */,
 				84C97068286EDF5200C6B1CC /* TestTaskInStatApp.swift in Sources */,
 				84C97085286EF6DD00C6B1CC /* NetworkManager.swift in Sources */,
+				848A70B428702E9800FFF1BB /* LeaderboardRowView.swift in Sources */,
+				84B81CF5286F93D00042AE57 /* LeaderboardView.swift in Sources */,
+				84B81CF9286F97190042AE57 /* LeaderboardViewModel.swift in Sources */,
 				84C9707B286EE56F00C6B1CC /* LeagueListView.swift in Sources */,
 				84014C5A286F4CBA0065DF15 /* SeasonRowView.swift in Sources */,
 				84B81CF0286F5E390042AE57 /* SeasonRowViewModel.swift in Sources */,

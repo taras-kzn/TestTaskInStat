@@ -18,14 +18,21 @@ struct LeagueListView: View {
 
     var body: some View {
         NavigationView {
-            List(viewModel.rows, id: \.idLeague) { leagueRowViewModel in
-                let networkManager = NetworkManager.shared
-                let viewModel =  SeasonsListViewModel(networkManager: networkManager, idLeague: leagueRowViewModel.idLeague)
-                NavigationLink(destination: SeasonListView(viewModel: viewModel)) {
-                    LeagueRowView(viewModel: leagueRowViewModel)
+            switch viewModel.state {
+            case .loading:
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                    .scaleEffect(2)
+            case .ready:
+                List(viewModel.rows, id: \.idLeague) { leagueRowViewModel in
+                    let networkManager = NetworkManager()
+                    let viewModel =  SeasonsListViewModel(networkManager: networkManager, idLeague: leagueRowViewModel.idLeague)
+                    NavigationLink(destination: SeasonListView(viewModel: viewModel)) {
+                        LeagueRowView(viewModel: leagueRowViewModel)
+                    }
                 }
+                .navigationBarTitle("Leagues")
             }
-            .navigationBarTitle("Leagues")
         }
         .onAppear {
             viewModel.getAllLeaguesAvailable()
@@ -35,7 +42,7 @@ struct LeagueListView: View {
 
 struct LeagueListView_Previews: PreviewProvider {
     static var previews: some View {
-        let networkManager = NetworkManager.shared
+        let networkManager = NetworkManager()
         let viewModel = LeagueListViewModel(networkManager: networkManager)
         LeagueListView(viewModel: viewModel)
     }
